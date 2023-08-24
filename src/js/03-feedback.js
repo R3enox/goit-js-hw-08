@@ -1,15 +1,5 @@
 const feedBackForm = document.querySelector('.feedback-form');
 let throttle = require('lodash.throttle');
-
-const formInput = event => {
-  const { email, message } = feedBackForm.elements;
-  const formValue = {
-    email: email.value,
-    message: message.value,
-  };
-  localStorage.setItem('feedback-form-state', JSON.stringify(formValue));
-};
-
 const formLocalOutput = JSON.parse(localStorage.getItem('feedback-form-state'));
 
 const restoreFromLocal = () => {
@@ -20,13 +10,19 @@ const restoreFromLocal = () => {
   }
 };
 
+const formInput = event => {
+  const { email, message } = feedBackForm.elements;
+  const formValue = {
+    email: email.value,
+    message: message.value,
+  };
+  localStorage.setItem('feedback-form-state', JSON.stringify(formValue));
+};
+
 const onSubmit = event => {
-  const formLocalOutput = JSON.parse(
-    localStorage.getItem('feedback-form-state')
-  );
   event.preventDefault();
   feedBackForm.reset();
-  console.log(formLocalOutput);
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
   localStorage.removeItem('feedback-form-state');
 };
 
