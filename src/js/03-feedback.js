@@ -4,10 +4,11 @@ const formLocalOutput = JSON.parse(localStorage.getItem('feedback-form-state'));
 
 const restoreFromLocal = () => {
   if (formLocalOutput === null) {
-    const { email, message } = feedBackForm.elements;
-    email.value = formLocalOutput.email;
-    message.value = formLocalOutput.message;
+    return;
   }
+  const { email, message } = feedBackForm.elements;
+  email.value = formLocalOutput.email;
+  message.value = formLocalOutput.message;
 };
 
 const formInput = event => {
