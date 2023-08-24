@@ -21,8 +21,8 @@ const formInput = event => {
 
 const onSubmit = event => {
   event.preventDefault();
-  feedBackForm.reset();
   console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+  feedBackForm.reset();
   localStorage.removeItem('feedback-form-state');
 };
 
