@@ -6,6 +6,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 console.log(galleryItems);
 
 const container = document.querySelector('.gallery');
+container.style.listStyle = 'none';
 const markup = galleryItems
   .map(
     ({ preview, original, description }) => `<li class="gallery__item">
