@@ -1,8 +1,10 @@
 const feedBackForm = document.querySelector('.feedback-form');
 let throttle = require('lodash.throttle');
-const formLocalOutput = JSON.parse(localStorage.getItem('feedback-form-state'));
 
 const restoreFromLocal = () => {
+  const formLocalOutput = JSON.parse(
+    localStorage.getItem('feedback-form-state')
+  );
   if (formLocalOutput === null) {
     return;
   }
